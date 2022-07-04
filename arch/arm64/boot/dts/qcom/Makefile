@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: GPL-2.0
-ifeq (,,)
 ifeq ($(CONFIG_MACH_XIAOMI),y)
 
 ifeq ($(CONFIG_MACH_XIAOMI_SM8150),y)
@@ -627,11 +626,6 @@ endif
 endif
 
 endif # CONFIG_MACH_XIAOMI
-
-endif
-
-dtbo-$(CONFIG_ARCH_SM8150) += vayu-sm8150-overlay.dtbo
-vayu-sm8150-overlay.dtbo-base := sm8150-xiaomi.dtb sm8150-v2-xiaomi.dtb sm8150p-xiaomi.dtb sm8150p-v2-xiaomi.dtb
 
 ifeq ($(CONFIG_ARM64),y)
 always		:= $(dtb-y)

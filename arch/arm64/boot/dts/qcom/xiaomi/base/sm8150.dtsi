@@ -4,12 +4,6 @@
 	};
 };
 
-&firmware {
-	android {
-		boot_devices = "soc/1d84000.ufshc";
-	};
-};
-
 &shared_meta {
 	parts = "vbmeta,boot,system,vendor,dtbo";
 };
@@ -19,7 +13,7 @@
 		status = "disabled";
 	};
 	vendor {
-		status = "disabled";
+		fsmgr_flags = "wait,avb";
 	};
 };
 
