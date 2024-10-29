@@ -1364,10 +1364,20 @@ struct task_struct {
 #ifdef CONFIG_LIVEPATCH
 	int patch_state;
 #endif
+
 #ifdef CONFIG_SECURITY
 	/* Used by LSM modules for access restriction: */
 	void				*security;
 #endif
+#ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
+	u64 android_kabi_reserved1;
+	u64 android_kabi_reserved2;
+#endif
+	struct {
+		struct work_struct work;
+		atomic_t running;
+		bool free_stack;
+	} async_free;
 
 	/*
 	 * New fields for task_struct should be added above here, so that
